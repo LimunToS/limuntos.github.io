@@ -34,7 +34,7 @@ function draw() {
 
   for(let i = 0;i<scl;i++){
     if(game = ptica.collision(prepreka)){
-      game = !game;
+      
       ptica.V = 0;
       ptica.A = 0;
     }
@@ -46,9 +46,9 @@ function draw() {
   }
   prepreka.show();
   ptica.show(img2);
-  if(!game){
+  if(game){
     prepreka.stop();
-    button.show();
+   // button.show();
   }
   fill(0);
   textSize(32);
@@ -58,7 +58,7 @@ function draw() {
 
 function keyPressed(){
   if(keyCode === UP_ARROW){
-    if(game){
+    if(!game){
       prepreka.start()
       game = true;
     }
@@ -67,7 +67,13 @@ function keyPressed(){
   return false;
 }
 
-
+functiin mousePressed() {
+  if(!game) {
+    prepreka.start()
+    game = true;
+  } 
+  ptica.jump();
+} 
 function restart(){
 
 }
