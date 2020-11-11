@@ -6,8 +6,8 @@ class Bird{
       this.A = 0;
     }
     
-    show(img){
-      image(img,this.x-30,this.y-5);  
+    show(){
+      image(img,this.X-30,this.Y-5);  
       fill(255);
       circle(this.X,this.Y,50);
       line(this.X,this.Y+25,this.X,this.Y+90); // telo
