@@ -4,9 +4,11 @@ let game = false;
 var scl = 100000;
 var score = 0;
 
+let img2;
 let img;
 function preload() {
   img = loadImage('niedwedz2.png');
+  img2 = loadImage('misic.png');
 }
 
 function setup() {
@@ -37,7 +39,7 @@ function draw() {
     
   }
   prepreka.show();
-  ptica.show();
+  ptica.show(img2);
   if(game){
     prepreka.stop();
   }
