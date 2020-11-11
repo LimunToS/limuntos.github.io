@@ -11,8 +11,9 @@ function preload() {
 
 function setup() {
   frameRate(60);
+    image(img,0,0);
   createCanvas(windowWidth, windowHeight);
-  image(img,0,0);
+
   ptica = new Bird();
   prepreka = new Prepreka();
 
