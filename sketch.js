@@ -1,8 +1,10 @@
 let ptica;
 let prepreka;
 let game = false;
+let trajeGame = false;
 var scl = 100000;
 var score = 0;
+let button
 
 let img2;
 let img;
@@ -13,7 +15,10 @@ function preload() {
 
 function setup() {
   frameRate(60);
-    
+  button = createButton('restart');
+  button.position(500,500);
+  button.mousePressed(restart);
+  button.hide();
   createCanvas(windowWidth, windowHeight);
 
   ptica = new Bird();
@@ -29,6 +34,7 @@ function draw() {
 
   for(let i = 0;i<scl;i++){
     if(game = ptica.collision(prepreka)){
+      game = !game;
       ptica.V = 0;
       ptica.A = 0;
     }
@@ -40,8 +46,9 @@ function draw() {
   }
   prepreka.show();
   ptica.show(img2);
-  if(game){
+  if(!game){
     prepreka.stop();
+    button.show();
   }
   fill(0);
   textSize(32);
@@ -58,4 +65,9 @@ function keyPressed(){
     ptica.jump();
   }
   return false;
+}
+
+
+function restart(){
+
 }
