@@ -16,7 +16,7 @@ class Bird{
 
       line(this.X,this.Y+45,this.X-25,this.Y+90);
       line(this.X,this.Y+45,this.X+25,this.Y+90);
-        image(img,this.X-30,this.Y-20,50,50);  
+        image(img,this.X-30,this.Y-30,70,70);  
       //rect(this.X,this.Y,15,150);
     }
     
