@@ -6,7 +6,7 @@ class Bird{
       this.A = 0;
     }
     
-    show(){
+    show(img){
       image(img,this.X-30,this.Y-5);  
       fill(255);
       circle(this.X,this.Y,50);
