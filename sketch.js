@@ -21,8 +21,8 @@ function setup() {
 
 function draw() {
   background(255);
-  fill('green');
-  rect(0,500,width,windowHeight-500); //tlo
+  //fill('green');
+  //rect(0,500,width,windowHeight-500); //tlo
   
 
   for(let i = 0;i<scl;i++){
@@ -36,8 +36,8 @@ function draw() {
     ptica.gameOver();
     
   }
-  prepreka.show();
-  ptica.show();
+  //prepreka.show();
+  //ptica.show();
   if(game){
     prepreka.stop();
   }
