@@ -6,7 +6,7 @@ var score = 0;
 
 let img;
 function preload() {
-  img = loadImage('niedwedz.png');
+  img = loadImage('https://github.com/LimunToS/limuntos.github.io/blob/main/niedwedz.png');
 }
 
 function setup() {
