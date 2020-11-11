@@ -58,7 +58,7 @@ function draw() {
 
 function keyPressed(){
   if(keyCode === UP_ARROW){
-    if(!game){
+    if(game){
       prepreka.start()
       game = true;
     }
