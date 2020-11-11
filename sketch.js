@@ -46,7 +46,7 @@ function draw() {
   fill(0);
   textSize(32);
   text(score,10,30);
-  image(img2,0,300,100,100);
+  image(img,0,300,100,100);
 }
 
 function keyPressed(){
