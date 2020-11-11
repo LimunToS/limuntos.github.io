@@ -27,8 +27,8 @@ function draw() {
 
   for(let i = 0;i<scl;i++){
     if(game = ptica.collision(prepreka)){
-      //ptica.V = 0;
-      //ptica.A = 0;
+      ptica.V = 0;
+      ptica.A = 0;
     }
     prepreka.update();
     ptica.update();
