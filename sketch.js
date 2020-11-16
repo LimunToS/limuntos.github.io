@@ -67,7 +67,7 @@ function keyPressed(){
   return false;
 }
 
-functiin mousePressed() {
+function mousePressed() {
   if(!game) {
     prepreka.start()
     game = true;
