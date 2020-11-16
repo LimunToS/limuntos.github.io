@@ -2,7 +2,7 @@ let ptica;
 let prepreka;
 let game = false;
 let trajeGame = false;
-var scl = 100000;
+var scl = 100;
 var score = 0;
 let button
 
