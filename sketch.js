@@ -9,16 +9,21 @@ let button
 let img2;
 let img;
 function preload() {
-  img = loadImage('niedwedz2.png');
-  img2 = loadImage('misic.png');
+  img = loadImage('./niedwedz2.png');
+  img2 = loadImage('./misic.png');
 }
 
 function setup() {
+
+  
+
   frameRate(60);
   button = createButton('restart');
-  button.position(500,500);
+  button.position(500,200);
   button.mousePressed(restart);
   button.hide();
+  
+  console.log(button)
   createCanvas(windowWidth, windowHeight);
 
   ptica = new Bird();
@@ -30,7 +35,6 @@ function draw() {
   background(255);
   fill('green');
   rect(0,500,width,windowHeight-500); //tlo
-  
 
   for(let i = 0;i<scl;i++){
     if(game = ptica.collision(prepreka)){
@@ -41,23 +45,24 @@ function draw() {
     prepreka.update();
     ptica.update();
     
-    ptica.gameOver();
+    ptica.checkGround();
     
   }
   prepreka.show();
   ptica.show(img2);
   if(game){
     prepreka.stop();
-   // button.show();
+    button.show();
   }
   fill(0);
   textSize(32);
   text(score,10,30);
-  image(img,0,300,100,100);
+  image(img,-10,260,150,150);
 }
 
 function keyPressed(){
-  if(keyCode === UP_ARROW){
+
+  if(keyCode === UP_ARROW || keyCode === 32){
     if(!game){
       prepreka.start()
       game = true;
@@ -67,13 +72,18 @@ function keyPressed(){
   return false;
 }
 
-function mousePressed() {
-  if(!game) {
-    prepreka.start()
-    game = true;
-  } 
-  ptica.jump();
-} 
-function restart(){
+// function mousePressed() {
+//   if(!game) {
+//     prepreka.start()
+//     game = true;
+//   } 
+//   console.log(ptica.canJump)
+//   ptica.jump(); 
+// } 
 
+function restart(){
+  ptica.setStartValues();
+  prepreka.setStartValues();
+  button.hide();
+  score = 0;
 }
