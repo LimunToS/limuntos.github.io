@@ -1,5 +1,9 @@
 class Bird{
     constructor(){
+      this.setStartValues();
+    }
+
+    setStartValues(){
       this.X = 350;
       this.Y = 350;
       this.V = 0;
@@ -16,7 +20,7 @@ class Bird{
 
       line(this.X,this.Y+45,this.X-25,this.Y+90);
       line(this.X,this.Y+45,this.X+25,this.Y+90);
-        image(img,this.X-30,this.Y-30,70,70);  
+      image(img,this.X-30,this.Y-30,70,70);  
       //rect(this.X,this.Y,15,150);
     }
     
@@ -26,17 +30,21 @@ class Bird{
     }
     
     jump(){
+      
       if(this.canJump){
+        
         this.V = 10/scl;
         this.A = 0.25/(scl*scl);
+        console.log(`${this.V} ${this.A}`)
         this.canJump = false;
       }
       
     }
-    gameOver(){
+    checkGround(){
         if(this.Y>=350){
             this.V = 0;
             this.A = 0;
+            this.Y = 350;
             this.canJump = true;
         }
     }
@@ -51,13 +59,16 @@ class Bird{
 
   class Prepreka{
       constructor(){
-          this.Arr = [];
-          this.Arr.push(createVector(1300,125));
-          this.Arr.push(createVector(1800,125));
-          this.Arr.push(createVector(2300,125));
-          this.Arr.push(createVector(2800,125));
-          this.udaljenost = 500;
-          this.V = 0;
+        this.setStartValues();
+      }
+      setStartValues(){
+        this.Arr = [];
+        this.Arr.push(createVector(1300,125));
+        this.Arr.push(createVector(1800,125));
+        this.Arr.push(createVector(2300,125));
+        this.Arr.push(createVector(2800,125));
+        this.udaljenost = 500;
+        this.V = 0;
       }
       start(){
         this.V = 5/scl;
