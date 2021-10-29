@@ -8,18 +8,46 @@ class Bird{
       this.Y = 350;
       this.V = 0;
       this.A = 0;
+
+      this.L = 24
+      this.R = -24
+
+      this.lagControler = true;
     }
     
     show(img){
+
+
       
       fill(255);
       circle(this.X,this.Y,50);
       line(this.X,this.Y+25,this.X,this.Y+90); // telo
-      line(this.X,this.Y+90,this.X-25,this.Y+150); //leva noga
-      line(this.X,this.Y+90,this.X+25,this.Y+150); //desna noga
+      line(this.X,this.Y+90,this.X+this.L,this.Y+150); //leva noga
+      line(this.X,this.Y+90,this.X+this.R,this.Y+150); //desna noga
 
-      line(this.X,this.Y+45,this.X-25,this.Y+90);
-      line(this.X,this.Y+45,this.X+25,this.Y+90);
+      if(this.canJump){
+        if(this.lagControler){
+          this.L -=3;
+          this.R +=3;
+        }
+        else{
+          this.L +=3;
+          this.R -=3; 
+        }
+      }
+      if(this.L === 24 || this.L === -24){ 
+        this.lagControler = !this.lagControler;
+      }
+
+      //ruke
+      if(this.canJump){
+        line(this.X,this.Y+45,this.X-25,this.Y+90);
+        line(this.X,this.Y+45,this.X+25,this.Y+90);
+      }else{
+        line(this.X,this.Y+45,this.X-40,this.Y+60);
+        line(this.X,this.Y+45,this.X+40,this.Y+60);
+      }
+
       image(img,this.X-30,this.Y-30,70,70);  
       //rect(this.X,this.Y,15,150);
     }
@@ -107,7 +135,8 @@ class Bird{
             prep.y = rand;
             //console.log(rand);
             this.udaljenost+=17.5;
-            this.V+=0.5/scl;  
+            this.V = this.V +  (0.5/scl);
+            console.log(this.V)  
             score++;
           }
         }
